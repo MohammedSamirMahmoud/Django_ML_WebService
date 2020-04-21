@@ -1,19 +1,3 @@
-"""
-WSGI config for server project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
-"""
-
-import os
-
-from django.core.wsgi import get_wsgi_application
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'server.settings')
-
-application = get_wsgi_application()
 # file backend/server/server/wsgi.py
 import os
 from django.core.wsgi import get_wsgi_application
@@ -35,7 +19,7 @@ try:
                             algorithm_name="random forest",
                             algorithm_status="production",
                             algorithm_version="0.0.1",
-                            owner="Mohammed Samir Mahmoud",
+                            owner="Mohammed",
                             algorithm_description="Random Forest with simple pre- and post-processing",
                             algorithm_code=inspect.getsource(RandomForestClassifier))
 

@@ -1,3 +1,4 @@
+from django.db import models
 '''
 #Build Django models to store information about ML algorithms and requests in the database,
 #Create Django models
@@ -18,10 +19,8 @@
     and start defining our classes which will store data about the ML Algorithm & the Requests in DB.
 '''
 
-from django.db import models
 
 # Create your models here.
-
 class Endpoint(models.Model):
     '''
     The Endpoint object represents ML API endpoint.
@@ -33,10 +32,10 @@ class Endpoint(models.Model):
     '''
     name = models.CharField(max_length=128)
     owner = models.CharField(max_length=128)
-    created_at = models.DateTimeField(auto_now=True ,blank=True)
+    created_at = models.DateTimeField(auto_now=True, blank=True)
 
 class MLAlgorithm(models.Model):
-    '''
+    """
     The MLAlgorithm represent the ML algorithm object.
 
     Attributes:
@@ -47,7 +46,7 @@ class MLAlgorithm(models.Model):
         owner: The name of the owner.
         created_at: The date when MLAlgorithm was added.
         parent_endpoint: The reference to the Endpoint.
-    '''
+    """
     name = models.CharField(max_length=128)
     description = models.CharField(max_length=1000)
     code = models.CharField(max_length=50000)
@@ -86,10 +85,10 @@ class MLRequest(models.Model):
         created_at: The date when request was created.
         parent_mlalgorithm: The reference to MLAlgorithm used to compute response.
     '''
-    input_data = models.CharField(max_length=100000)
-    full_response = models.CharField(max_length=100000)
-    response = models.CharField(max_length=100000)
-    feedback = models.CharField(max_length=100000, blank=True, null=True)
+    input_data = models.CharField(max_length=10000)
+    full_response = models.CharField(max_length=10000)
+    response = models.CharField(max_length=10000)
+    feedback = models.CharField(max_length=10000, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     parent_mlalgorithm = models.ForeignKey(MLAlgorithm, on_delete=models.CASCADE)
 

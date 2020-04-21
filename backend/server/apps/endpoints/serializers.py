@@ -26,11 +26,13 @@ from apps.endpoints.models import MLAlgorithm
 from apps.endpoints.models import MLAlgorithmStatus
 from apps.endpoints.models import MLRequest
 
+
 class EndpointSerializer(serializers.ModelSerializer):
     class Meta:
         model = Endpoint
         read_only_fields = ("id", "name", "owner", "created_at")
         fields = read_only_fields
+
 
 class MLAlgorithmSerializer(serializers.ModelSerializer):
     current_status = serializers.SerializerMethodField(read_only=True)
@@ -45,12 +47,14 @@ class MLAlgorithmSerializer(serializers.ModelSerializer):
                             "parent_endpoint", "current_status")
         fields = read_only_fields
 
+
 class MLAlgorithmStatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = MLAlgorithmStatus
         read_only_fields = ("id", "active")
         fields = ("id", "active", "status", "created_by", "created_at",
-                            "parent_mlalgorithm")
+                  "parent_mlalgorithm")
+
 
 class MLRequestSerializer(serializers.ModelSerializer):
     class Meta:
@@ -63,7 +67,7 @@ class MLRequestSerializer(serializers.ModelSerializer):
             "created_at",
             "parent_mlalgorithm",
         )
-        fields =  (
+        fields = (
             "id",
             "input_data",
             "full_response",
@@ -72,6 +76,7 @@ class MLRequestSerializer(serializers.ModelSerializer):
             "created_at",
             "parent_mlalgorithm",
         )
+
 
 '''
 Serializers will help with packing and unpacking database objects into JSON objects. 
