@@ -1,5 +1,6 @@
 # Django_ML_WebService
 
+In this tutorial, We will use Adult Income data set. In this data set, the ML will be used to predict whether income exceeds $50K/year based on census data. All of this will be deployed inside Django Web Service.
 
 
 ### To Test the project on your local machine please follow these steps:
